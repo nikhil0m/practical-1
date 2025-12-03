@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Show / Hide Image with Session Storage</title>
+</head>
+<body>
+
+<img id="Img" src="https://res.cloudinary.com/dkiez6yqc/image/upload/v1761159742/thumbnail-14_hyrtae.webp" alt="Sample Image">
+
+<button onclick="showImage()">Show Image</button>
+<button onclick="hideImage()">Hide Image</button>
+
+<br><br>
+
+<script>
+window.onload = function() {
+    let state = sessionStorage.getItem("imgVisible");
+
+    if (state === "hidden") {
+        document.getElementById("Img").style.display = "none";
+    } else {
+        document.getElementById("Img").style.display = "block";
+    }
+};
+
+function showImage() {
+    document.getElementById("Img").style.display = "block";
+    sessionStorage.setItem("imgVisible", "visible");
+}
+
+function hideImage() {
+    document.getElementById("Img").style.display = "none";
+    sessionStorage.setItem("imgVisible", "hidden");
+}
+</script>
+
+</body>
+</html>
